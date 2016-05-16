@@ -3,7 +3,7 @@
 namespace cn\processor;
 
 class Generic extends AbstractProcessor {
-    public function __construct($segments) {
+    public function __construct($segments,$location) {
         $txt = "";
         foreach($segments as $seg) {
             if ($txt==='')
@@ -13,7 +13,9 @@ class Generic extends AbstractProcessor {
         }
         $txt .= "}";
         $this->data = array('classification_type'=>"UNKNOWN",
-            'UNKNOWN'=>$txt);
+            'UNKNOWN'=>$txt,
+	    'location'=>$location
+	    );
 
     }
 

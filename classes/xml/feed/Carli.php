@@ -36,7 +36,10 @@ class Carli extends RSS {
                 if(\preg_match("/^([-a-zA-Z_ ]*[a-zA-Z]{4}): /",$f,$matches)) {
                     $fname = \strtolower(str_replace(' ','_',\trim($matches[1])));
                     $fvalue = \trim(str_replace($matches[0],'',$f));
-                    $fields[$fname] = $fvalue;
+		    $fields[$fname] = $fvalue;
+                    if($fname == 'location'){
+                    	continue;
+		    }
                     $this->xml->channel->item[$i]->addChild($fname,$fvalue);
                 }
             }

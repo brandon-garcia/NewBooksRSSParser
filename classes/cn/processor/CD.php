@@ -7,7 +7,8 @@ class CD extends AbstractProcessor {
     public function __construct($cn,$location) {
         $this->location = strtolower($location);
         $this->data = array('classification_type'=>'CD',
-            'subject' => $this->getSubject());
+            'subject' => $this->getSubject(),
+	    'location' => $location);
     }
 
     public function matches($range) {

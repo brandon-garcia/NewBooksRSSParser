@@ -3,13 +3,14 @@
 namespace cn\processor;
 
 class LC extends AbstractProcessor {
-    public function __construct($number) {
+    public function __construct($number,$location) {
         if (is_array($number))
             var_dump($number);
 
         $this->cn = $this->normalize($number);
         $this->data = array('classification_type'=>'LC',
-            'subject' => $this->getSubject());
+            'subject' => $this->getSubject(),
+	    'location' => $location);
     }
 
     public function getSubject() {
